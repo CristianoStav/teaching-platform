@@ -24,7 +24,7 @@ describe('LessonService', () => {
     lessonRepository = module.get(LessonsRepository);
   });
 
-  it('Deve retornar a lista de lições', async () => {
+  it('Should return the list of lessons', async () => {
     const courseId = 1;
     (lessonRepository.findAll as jest.Mock).mockResolvedValue([
       { id: 1, courseId, description: 'First Lesson', title: 'Lesson 1' },
@@ -36,7 +36,7 @@ describe('LessonService', () => {
     expect(result[0].title).toBe('Lesson 1');
   });
 
-  it('Deve criar uma lição', async () => {
+  it('Should create a lesson', async () => {
     const courseId = 1;
     const lesson = { courseId, description: 'First Lesson', title: 'Lesson 1' } as Lesson;
     (lessonRepository.create as jest.Mock).mockResolvedValue(lesson);
@@ -45,7 +45,7 @@ describe('LessonService', () => {
     expect(result).toEqual(lesson);
   });
 
-  it('Deve atualizar uma lesson', async () => {
+  it('Should update a lesson', async () => {
     const courseId = 1;
     const updateData = { courseId, description: 'First Lesson', title: 'Lesson 1' };
 
@@ -57,7 +57,7 @@ describe('LessonService', () => {
     expect(result).toEqual(updateData);
   });
 
-  it('Deve deletar uma lesson', async () => {
+  it('Should remove a lesson', async () => {
     const lessonId = 1;
     (lessonRepository.remove as jest.Mock).mockResolvedValue({ id: lessonId });
 
@@ -67,7 +67,7 @@ describe('LessonService', () => {
     expect(result).toEqual({ id: lessonId });
   });
 
-  it('Deve retornar um curso', async () => {
+  it('Should return a lesson', async () => {
     const courseId = 1;
     const lessonId = 1;
     const lesson = {

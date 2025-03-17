@@ -24,7 +24,7 @@ describe('CommentService', () => {
     commentsRepository = module.get(CommentsRepository);
   });
 
-  it('Deve retornar a lista de cursos', async () => {
+  it('Should return the list of comments', async () => {
     const courseId = 1;
     const lessonId = 1;
     (commentsRepository.findAll as jest.Mock).mockResolvedValue([
@@ -42,7 +42,7 @@ describe('CommentService', () => {
     expect(result[0].id).toBe(1);
   });
 
-  it('Deve criar um comentario', async () => {
+  it('Should create a comment', async () => {
     const lessonId = 1;
     const comment = {
       id: 1,
@@ -58,7 +58,7 @@ describe('CommentService', () => {
     expect(result).toEqual(comment);
   });
 
-  it('Deve atualizar um comentário', async () => {
+  it('Should update a comment', async () => {
     const commentId = 1;
     const updateData = {
       text: 'Comentário atualizado',
@@ -76,7 +76,7 @@ describe('CommentService', () => {
     expect(result).toEqual(updateData);
   });
 
-  it('Deve deletar um comentario', async () => {
+  it('Should delete a comment', async () => {
     const commentId = 1;
     (commentsRepository.remove as jest.Mock).mockResolvedValue({
       id: commentId,
@@ -88,7 +88,7 @@ describe('CommentService', () => {
     expect(result).toEqual({ id: commentId });
   });
 
-  it('Deve retornar um comentário', async () => {
+  it('Should return a comment', async () => {
     const commentId = 1;
     const comment = {
       id: commentId,

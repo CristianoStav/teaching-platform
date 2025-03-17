@@ -24,7 +24,7 @@ describe('CourseService', () => {
     courseRepository = module.get(CourseRepository);
   });
 
-  it('Deve retornar a lista de cursos', async () => {
+  it('Should return the list of courses', async () => {
     (courseRepository.list as jest.Mock).mockResolvedValue([
       { id: 1, name: 'Nodejs', category: 'Backend' },
       { id: 1, name: 'React', category: 'Frontend' },
@@ -35,7 +35,7 @@ describe('CourseService', () => {
     expect(result[0].name).toBe('Nodejs');
   });
 
-  it('Deve criar um curso', async () => {
+  it('Should create a crouse', async () => {
     const course = { id: 1, name: 'Nodejs', category: 'Backend' } as Course;
     (courseRepository.create as jest.Mock).mockResolvedValue(course);
 
@@ -43,7 +43,7 @@ describe('CourseService', () => {
     expect(result).toEqual(course);
   });
 
-  it('Deve atualizar um curso', async () => {
+  it('Should update a course', async () => {
     const courseId = 1;
     const updateData = { name: 'React', category: 'Frontend' };
     const updatedCourse = { id: courseId, ...updateData };
@@ -56,7 +56,7 @@ describe('CourseService', () => {
     expect(result).toEqual(updatedCourse);
   });
 
-  it('Deve deletar um curso', async () => {
+  it('Should remove a course', async () => {
     const courseId = 1;
     (courseRepository.remove as jest.Mock).mockResolvedValue({ id: courseId });
 
@@ -66,7 +66,7 @@ describe('CourseService', () => {
     expect(result).toEqual({ id: courseId });
   });
 
-  it('Deve retornar um curso', async () => {
+  it('Should return a course', async () => {
     const courseId = 1;
     const course = {
       id: courseId,
