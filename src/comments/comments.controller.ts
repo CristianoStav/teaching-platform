@@ -32,7 +32,10 @@ export class CommentsController {
   }
 
   @Get()
-  findAll(@Param('lessonId') lessonId: string, @Param('courseId') courseId: string) {
+  findAll(
+    @Param('lessonId') lessonId: string,
+    @Param('courseId') courseId: string,
+  ) {
     return this.commentsService.findAll(+lessonId, +courseId);
   }
 

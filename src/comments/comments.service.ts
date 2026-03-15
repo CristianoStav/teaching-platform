@@ -12,7 +12,7 @@ export class CommentsService {
   }
 
   findAll(lessonId: number, courseId: number) {
-    return this.commentsRepository.findAll(lessonId, courseId); 
+    return this.commentsRepository.findAll(lessonId, courseId);
   }
 
   findOne(id: number) {

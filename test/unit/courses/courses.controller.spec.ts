@@ -69,5 +69,5 @@ describe('CoursesController', () => {
 
     expect(coursesService.remove).toHaveBeenCalledWith(courseId);
     expect(result).toEqual({ id: courseId });
-  })
+  });
 });

@@ -1,12 +1,17 @@
 name: Lint and Test
 run-name: Run Lint and Tests of ${{ github.repository }} 🚀
-on: [push]
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   Lint:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v5
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:

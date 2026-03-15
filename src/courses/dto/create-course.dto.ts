@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsString } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateCourseDto {
   @IsString()
@@ -7,7 +7,7 @@ export class CreateCourseDto {
   @ApiProperty({
     example: 'Learning JavaScript',
     required: true,
-    description: 'The name of the course'
+    description: 'The name of the course',
   })
   name: string;
 
@@ -16,7 +16,7 @@ export class CreateCourseDto {
   @ApiProperty({
     example: 'Programming',
     required: true,
-    description: 'The category of the course'
+    description: 'The category of the course',
   })
   category: string;
 }

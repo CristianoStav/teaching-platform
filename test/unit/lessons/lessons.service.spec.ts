@@ -38,7 +38,11 @@ describe('LessonService', () => {
 
   it('Should create a lesson', async () => {
     const courseId = 1;
-    const lesson = { courseId, description: 'First Lesson', title: 'Lesson 1' } as Lesson;
+    const lesson = {
+      courseId,
+      description: 'First Lesson',
+      title: 'Lesson 1',
+    } as Lesson;
     (lessonRepository.create as jest.Mock).mockResolvedValue(lesson);
 
     const result = await lessonService.create(courseId, lesson);
@@ -47,7 +51,11 @@ describe('LessonService', () => {
 
   it('Should update a lesson', async () => {
     const courseId = 1;
-    const updateData = { courseId, description: 'First Lesson', title: 'Lesson 1' };
+    const updateData = {
+      courseId,
+      description: 'First Lesson',
+      title: 'Lesson 1',
+    };
 
     (lessonRepository.update as jest.Mock).mockResolvedValue(updateData);
 
