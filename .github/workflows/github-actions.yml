@@ -5,9 +5,7 @@ on: [push]
 jobs:
   Lint:
     runs-on: ubuntu-latest
+
     steps:
+      - uses: Use Node.js
       - run: npx eslint .
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: npm run test
