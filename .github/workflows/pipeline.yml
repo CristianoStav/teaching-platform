@@ -7,9 +7,13 @@ on:
 
 jobs:
   Lint:
+  
     runs-on: ubuntu-latest
 
     steps:
+      - name: List files
+        run: ls -R
+
       - uses: ./.github/actions/nodejs-setup
 
       - name: Run Eslint
