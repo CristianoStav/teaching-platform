@@ -23,4 +23,13 @@ jobs:
       - uses: ./.github/actions/nodejs-setup
 
       - name: Run Tests
-        run: npm run test
+        run: npm run test:cov
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: ./.github/actions/nodejs-setup
+
+      - name: Build the project
+        run: npm run build
