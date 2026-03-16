@@ -7,12 +7,9 @@ on:
 
 jobs:
   Lint:
-  
     runs-on: ubuntu-latest
-
     steps:
-      - name: List files
-        run: ls -R
+      - uses: actions/checkout@v5
 
       - uses: ./.github/actions/nodejs-setup
 
@@ -20,8 +17,9 @@ jobs:
         run: npx eslint .
   Test:
     runs-on: ubuntu-latest
-
     steps:
+      - uses: actions/checkout@v5
+
       - uses: ./.github/actions/nodejs-setup
 
       - name: Run Tests
