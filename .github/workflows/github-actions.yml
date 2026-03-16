@@ -10,16 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install the Dependencies
-        run: npm ci
+      - uses: ./.github/actions/setup
 
       - name: Run Eslint
         run: npx eslint .
@@ -27,16 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-    
-      - name: Install the Dependencies
-        run: npm ci
+      - uses: ./.github/actions/setup
 
       - name: Run Tests
         run: npm run test
