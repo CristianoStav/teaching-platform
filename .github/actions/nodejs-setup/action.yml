@@ -1,6 +1,6 @@
 name: "nodejs Setup"
 description: "Nodejs setup action"
-run:
+runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v5
@@ -13,3 +13,4 @@ run:
 
     - name: Install the Dependencies
       run: npm ci
+      shell: bash
