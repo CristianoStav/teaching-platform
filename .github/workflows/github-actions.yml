@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/setup.yml
+      - uses: ./.github/actions/nodejs-setup/action.yml
 
       - name: Run Eslint
         run: npx eslint .
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/setup.yml
+      - uses: ./.github/actions/nodejs-setup/action.yml
 
       - name: Run Tests
         run: npm run test
