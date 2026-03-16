@@ -23,3 +23,9 @@ jobs:
 
       - name: Run Eslint
         run: npx eslint .
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Tests
+        run: npm run test

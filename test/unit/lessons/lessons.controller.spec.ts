@@ -7,7 +7,6 @@ import { lessonServiceMock } from 'test/mocks/lessons/lesson-service.mock';
 
 describe('CoursesController', () => {
   let lessonsController: LessonsController;
-  let lessonsService: LessonsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -21,7 +20,6 @@ describe('CoursesController', () => {
     }).compile();
 
     lessonsController = module.get<LessonsController>(LessonsController);
-    lessonsService = module.get<LessonsService>(LessonsService);
   });
 
   it('Should return the list of lessons', async () => {
@@ -63,7 +61,10 @@ describe('CoursesController', () => {
     lessonServiceMock.update.mockResolvedValue(lesson);
 
     const result = await lessonsController.update(`${courseId}`, lesson);
-    expect(lessonsService.update).toHaveBeenCalledWith(+`${courseId}`, lesson);
+    expect(lessonServiceMock.update).toHaveBeenCalledWith(
+      +`${courseId}`,
+      lesson,
+    );
     expect(result.title).toBe(lesson.title);
   });
 
@@ -87,7 +88,7 @@ describe('CoursesController', () => {
 
     const result = await lessonsController.remove(`${lessonId}`);
 
-    expect(lessonsService.remove).toHaveBeenCalledWith(lessonId);
+    expect(lessonServiceMock.remove).toHaveBeenCalledWith(lessonId);
     expect(result).toEqual({ id: lessonId });
   });
 });

@@ -6,7 +6,6 @@ import { courseServiceMock } from 'test/mocks/courses/course-service.mock';
 
 describe('CoursesController', () => {
   let coursesController: CoursesController;
-  let coursesService: CoursesService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -20,7 +19,6 @@ describe('CoursesController', () => {
     }).compile();
 
     coursesController = module.get<CoursesController>(CoursesController);
-    coursesService = module.get<CoursesService>(CoursesService);
   });
 
   it('Should return the list of courses', async () => {
@@ -49,7 +47,7 @@ describe('CoursesController', () => {
     courseServiceMock.update = jest.fn().mockResolvedValue(course);
 
     const result = await coursesController.update('1', course);
-    expect(coursesService.update).toHaveBeenCalledWith(+'1', course);
+    expect(courseServiceMock.update).toHaveBeenCalledWith(+'1', course);
     expect(result.name).toBe(course.name);
   });
 
@@ -67,7 +65,7 @@ describe('CoursesController', () => {
 
     const result = await coursesController.remove('1');
 
-    expect(coursesService.remove).toHaveBeenCalledWith(courseId);
+    expect(courseServiceMock.remove).toHaveBeenCalledWith(courseId);
     expect(result).toEqual({ id: courseId });
   });
 });

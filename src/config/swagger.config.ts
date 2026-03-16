@@ -1,4 +1,4 @@
-const packageJson = require('../../package.json');
+import * as packageJson from '../../package.json';
 import { DocumentBuilder } from '@nestjs/swagger';
 
 const { name, version } = packageJson;

@@ -3,15 +3,14 @@ import { CreateCourseDto } from './dto/create-course.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
 import {
   Get,
+  Put,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  HttpCode,
   Controller,
   ValidationPipe,
-  HttpCode,
-  Put,
 } from '@nestjs/common';
 
 @Controller('courses')

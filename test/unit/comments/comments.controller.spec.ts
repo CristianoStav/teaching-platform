@@ -112,7 +112,7 @@ describe('CommentsController', () => {
 
     const result = await commentsController.remove('1');
 
-    expect(commentsService.remove).toHaveBeenCalledWith(commentId);
+    expect(commentsServiceMock.remove).toHaveBeenCalledWith(commentId);
     expect(result).toEqual({ id: commentId });
   });
 });
