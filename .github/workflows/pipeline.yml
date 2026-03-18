@@ -15,7 +15,9 @@ jobs:
 
       - name: Run Eslint
         run: npx eslint .
+
   Test:
+    needs: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -24,6 +26,7 @@ jobs:
 
       - name: Run Tests
         run: npm run test:cov
+
   Build:
     runs-on: ubuntu-latest
     steps:
