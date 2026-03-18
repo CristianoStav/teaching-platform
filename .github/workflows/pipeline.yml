@@ -15,8 +15,6 @@ jobs:
 
       - name: Run Eslint
         run: npx eslint .
-
-jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
@@ -26,8 +24,6 @@ jobs:
 
       - name: Run Tests
         run: npm run test:cov
-
-jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
